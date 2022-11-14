@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_120207) do
     t.integer "booking_amount"
     t.integer "billing_amount"
     t.string "booking_amount_status"
-    t.string "billig_amount_status"
+    t.string "billing_amount_status"
     t.string "status"
     t.time "from"
     t.time "to"

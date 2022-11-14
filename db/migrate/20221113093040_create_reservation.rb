@@ -9,7 +9,7 @@ class CreateReservation < ActiveRecord::Migration[7.0]
       t.integer :booking_amount
       t.integer :billing_amount
       t.string :booking_amount_status
-      t.string :billig_amount_status
+      t.string :billing_amount_status
       t.string :status
       t.time :from
       t.time :to
