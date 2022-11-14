@@ -1,7 +1,7 @@
 class Restaurant < ApplicationController
   has_one :address, as: :addressable, dependent: :destroy
-  has_many :tables, counter_cache: :tables_count, dependent: :nullify
-  has_many :reservations, counter_cache: :reservations_count, dependent: :destroy
+  has_many :tables, dependent: :nullify
+  has_many :reservations, dependent: :destroy
   has_many :customers, through: :reservations, source: :customer
 
   validates :name, presence: true

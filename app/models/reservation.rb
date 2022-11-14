@@ -3,9 +3,9 @@ class Reservation < ApplicationController
 
   belongs_to :restaurant, counter_cache: true
   belongs_to :customer
-  has_many :tables, counter_cache: :tables_count, dependent: :nullify
-  has_many :games, counter_cache: :games_count, dependent: :destroy
-  has_many :foods, counter_cache: :foods_count, dependent: :destroy
+  has_many :tables, dependent: :nullify
+  has_many :games, dependent: :destroy
+  has_many :foods, dependent: :destroy
 
   validates :from, :booking_amount_status, :billing_amount_status, :status, presence: true
   with_options allow_blank: true do
