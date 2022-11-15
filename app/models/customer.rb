@@ -3,7 +3,7 @@ class Customer < ApplicationController
   REGEX_CONTACT_NUMBER = /\d{10}/
 
   has_one :address, as: :addressable, dependent: :destroy
-  has_one :reservation, dependent: :destroy
+  has_many :reservation, dependent: :destroy
   has_many :tables, through: :reservation
   has_many :foods, through: :reservation
   has_many :games, through: :reservation

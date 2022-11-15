@@ -4,6 +4,8 @@ class CreateReservation < ActiveRecord::Migration[7.0]
       t.integer :table_number
       t.integer :foods_count
       t.integer :games_count
+      t.integer :tables_count
+      t.integer :people_count
       t.references :restaurant, null: false, foreign_key: true
       t.references :customer, null: false, foreign_key: true
       t.integer :booking_amount
