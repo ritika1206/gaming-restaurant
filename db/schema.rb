@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_062826) do
   create_table "food_reservations", force: :cascade do |t|
     t.integer "food_id", null: false
     t.integer "reservation_id", null: false
+    t.integer "order_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_food_reservations_on_food_id"
@@ -43,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_062826) do
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.integer "available_stock"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_062826) do
   create_table "game_reservations", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "reservation_id", null: false
+    t.integer "order_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_game_reservations_on_game_id"
@@ -59,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_062826) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.integer "available_set"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
