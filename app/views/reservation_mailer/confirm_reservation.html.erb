@@ -1,0 +1,9 @@
+<h3>Hi, <%= @reservation.customer.name %><h3>
+
+<h4>Thank you for reserving <%= @reservation.tables.size %> <%= @reservation.tables.size == 1 ? 'table' : 'tables' %> at <%= @reservation.restaurant.name %> from <%= @reservation.from %> to <%= @reservation.to %></h4>
+<h5>Your reservation has been successfully booked, with food items total of <%= @reservation.foods.size %> and games with total of <%= @reservation.games.size %>
+<h5>Below is the foods and games information of your reservation<h5>
+
+<%= render partial: 'booked_items', locals: { item_name: 'Foods', items: @reservation.foods } %>
+<%= render partial: 'booked_items', locals: { item_name: 'Games', items: @reservation.games } %>
+
