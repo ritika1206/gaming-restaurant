@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_15_062826) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_064713) do
   create_table "addresses", force: :cascade do |t|
     t.string "country"
     t.string "city"
@@ -34,7 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_062826) do
   create_table "food_reservations", force: :cascade do |t|
     t.integer "food_id", null: false
     t.integer "reservation_id", null: false
-    t.integer "order_price"
+    t.integer "paid_unit_price"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_food_reservations_on_food_id"
@@ -52,7 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_062826) do
   create_table "game_reservations", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "reservation_id", null: false
-    t.integer "order_price"
+    t.integer "paid_unit_price"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_game_reservations_on_game_id"
@@ -94,10 +96,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_062826) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tables", force: :cascade do |t|
+    t.integer "reservation_id"
+    t.string "status"
+    t.integer "capacity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reservation_id"], name: "index_tables_on_reservation_id"
+  end
+
   add_foreign_key "food_reservations", "foods"
   add_foreign_key "food_reservations", "reservations"
   add_foreign_key "game_reservations", "games"
   add_foreign_key "game_reservations", "reservations"
   add_foreign_key "reservations", "customers"
   add_foreign_key "reservations", "restaurants"
+  add_foreign_key "tables", "reservations"
 end
